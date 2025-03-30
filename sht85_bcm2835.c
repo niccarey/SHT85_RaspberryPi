@@ -58,7 +58,7 @@ void SHT85_Init(void)
 
 // ---------------
 
-void SHT85_I2C_Exit(void)
+void SHT85_Exit(void)
 {
 	bcm2835_i2c_end();
 }
@@ -344,7 +344,7 @@ static etError CheckCrc(uint8_t data[], uint8_t nbrOfBytes, uint8_t checksum)
 //------------------------------------------------------------------------------
 static float CalcTemperature(uint16_t rawValue)
 {
-  // calculate temperature [°C]
+  // calculate temperature [Â°C]
   // T = -45 + 175 * rawValue / (2^16-1)
   return 175.0f * (float)rawValue / 65535.0f - 45.0f;
 }
